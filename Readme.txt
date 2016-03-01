@@ -1,4 +1,4 @@
 This is a repositry of QuizUp contest
-made by Jaypee University,Solan,Himachal Pradesh
+made by Students of Jaypee University,Solan,Himachal Pradesh
 
 :)
