@@ -5,9 +5,6 @@ from flask import Flask, request, session, g, redirect, url_for, \
 # configuration
 DATABASE = '~/home/GIT/Reboot-Quiz_up/database1.db'
 DEBUG = True
-SECRET_KEY = 'development key'
-USERNAME = 'admin'
-PASSWORD = 'default'
 
 app = Flask(__name__)
 q = {}
