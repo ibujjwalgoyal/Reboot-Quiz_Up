@@ -1,30 +1,26 @@
 from flask import Flask
-from flask.ext.mysql import MySQL
+import MySQLdb
 from werkzeug import generate_password_hash, check_password_hash
 import os
  
-mysql = MySQL()
 app = Flask(__name__)
+db = MySQLdb.connect("localhost","root","root","student" )
 
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'EmpData'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
- 
 @app.route("/")
 def hello():
     return "Welcome to QuizUp!"
 
-@app.route("/ques/<int:number>")
+@app.route("/ques")
 def Authenticate():
-    cursor = mysql.connect().cursor()
-    cursor.execute("SELECT * from login")
+    cursor = db.cursor()
+    cursor.execute("SELECT * from user")
     data = cursor.fetchall()
     if data is None:
      return "404 error"
-    else:
-    	return "Successfull fetch"
+    else:    	
+    	for row in data:
+    		print row,
+    	return data[0][0]
 
 if __name__ == '__main__':
 	app.run(debug = True)
