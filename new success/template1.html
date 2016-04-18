@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>Quiz Up!!!</title>
+		<style type="text/css">
+			label {
+				margin:0px 2px 4px 2px; 
+				padding: 1px;
+				display: block;
+				}
+		</style>
+	</head>
+   <body>
+      <h2>{{ data[0][0] }}</h2><br>
+      		<form action="" method="get">
+			      <label title="1" id="{{  data[0][1] }}"><input type="radio" onchange="statecheck('{{  data[0][1] }}')" />{{  data[0][1] }}</label><br><br>
+			      <label title="2" id="{{  data[0][2] }}"><input type="radio" onchange="statecheck('{{  data[0][2] }}')" />{{  data[0][2] }}</label><br><br>
+			      <label title="3" id="{{  data[0][3] }}"><input type="radio" onchange="statecheck('{{  data[0][3] }}')" />{{  data[0][3] }}</label><br><br>
+			      <label title="4" id="{{  data[0][4] }}"><input type="radio" onchange="statecheck('{{  data[0][4] }}')" />{{  data[0][4] }}</label><br><br>
+			</form>
+			<script type="text/javascript">
+			function statecheck(myLayer) {
+				var myLayer1 = document.getElementById(myLayer);
+				var str1 = myLayer;
+				var str2 = "{{ data[0][5] }}";
+				var myLayer2 = document.getElementById(str2);
+				var n = str1.localeCompare(str2);
+				if(n == 0)
+				{
+					myLayer1.style.backgroundColor = "#bff0a1";
+					window.alert("Correct Answer.");
+					Redirect();
+				}
+				else
+				{
+					myLayer1.style.backgroundColor = "#b000a1";
+					myLayer2.style.backgroundColor = "#bff0a1";
+					window.alert("Galat Jawab.");				
+					Redirect1();
+				}
+				 /*window.alert(myLayer);
+				 var str2 = 'Delhi';
+				 if(strcmp(myLayer,str2)){
+				 myLayer.style.backgroundColor = "#bff0a1";
+				 } 
+				 else {
+				 myLayer.style.backgroundColor = "#eee";
+				 };
+				}
+			function strcmp(a, b)
+			{   
+			    return (a<b?-1:(a>b?1:0));  */
+			}
+			function Redirect() {
+               window.location="http://www.google.com";
+            }
+            function Redirect1() {
+               window.location="http://www.reboot2k16.in";
+            }
+		</script>
+   </body>
+</html>
