@@ -1,19 +1,13 @@
+
 from flask import Flask, render_template
-from Tkinter import *
-import time
 import MySQLdb 
 
 app = Flask(__name__)
 db = MySQLdb.connect ("localhost","root","root","student")
-root = Tk()
-time1 = ''
-clock = Label(root, font=('times', 20, 'bold'), bg='green')
-clock.pack(fill=BOTH, expand=1)
-
 
 @app.route("/")
 def hello():
-  return "Welcome To Quiz Up"
+  return render_template("start.html")
 
 @app.route("/ques")
  
