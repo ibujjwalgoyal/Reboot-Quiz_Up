@@ -1,3 +1,4 @@
+
 <html>
 	<head>
 		<title>Quiz Up!!!</title>
@@ -10,7 +11,7 @@
 		</style>
 	</head>
    <body>
-      <h2>{{ data[0][0] }}</h2><br>
+      <h2>{{ data[0][0] }}</h2> <div id=time></div>	<br> 
       		<form action="" method="get">
 			      <label title="1" id="{{  data[0][1] }}"><input type="radio" onchange="statecheck('{{  data[0][1] }}')" />{{  data[0][1] }}</label><br><br>
 			      <label title="2" id="{{  data[0][2] }}"><input type="radio" onchange="statecheck('{{  data[0][2] }}')" />{{  data[0][2] }}</label><br><br>
@@ -18,6 +19,7 @@
 			      <label title="4" id="{{  data[0][4] }}"><input type="radio" onchange="statecheck('{{  data[0][4] }}')" />{{  data[0][4] }}</label><br><br>
 			</form>
 			<script type="text/javascript">
+
 			function statecheck(myLayer) {
 				var myLayer1 = document.getElementById(myLayer);
 				var str1 = myLayer;
@@ -37,19 +39,18 @@
 					window.alert("Galat Jawab.");				
 					Redirect1();
 				}
-				 /*window.alert(myLayer);
-				 var str2 = 'Delhi';
-				 if(strcmp(myLayer,str2)){
-				 myLayer.style.backgroundColor = "#bff0a1";
-				 } 
-				 else {
-				 myLayer.style.backgroundColor = "#eee";
-				 };
-				}
-			function strcmp(a, b)
-			{   
-			    return (a<b?-1:(a>b?1:0));  */
+			
 			}
+            var count = 20;
+            var fxn = function() {
+                count--;
+                document.getElementById('time').innerHTML = count;
+                if(count == 0){
+                	Redirect1();
+                }
+                }
+            setInterval(fxn, 1000);
+
 			function Redirect() {
                window.location="http://www.google.com";
             }
