@@ -181,7 +181,7 @@ label {
 }
 
 .lightsaber label {
-	cursor: pointer;
+	cursor: not-allowed;
 	position: absolute;
 	bottom: 0;
 	left: -4px;
@@ -260,7 +260,7 @@ label {
 
 
 .lightsaber input[type=checkbox]:checked ~ div.plasma {
-	height: 250px;
+	height: 350px;
 }
 
 .lightsaber input[type=checkbox]:hover ~ div.switch {

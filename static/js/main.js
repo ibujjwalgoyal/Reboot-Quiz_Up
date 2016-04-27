@@ -7,6 +7,7 @@ function statecheck(myLayer) {
 	if(n == 0)
 	{
 		myLayer1.style.backgroundColor = "#bff0a1";
+		document.getElementById("yoda-example").checked = True;
 		document.getElementById("a").disabled = true;
 		document.getElementById("b").disabled = true;
 		document.getElementById("c").disabled = true;
@@ -18,7 +19,8 @@ function statecheck(myLayer) {
 	else
 	{
 		myLayer1.style.backgroundColor = "#b000a1";
-		myLayer2.style.backgroundColor = "#bff0a1";			
+		myLayer2.style.backgroundColor = "#bff0a1";
+		document.getElementById("darth-vader-example").checked = True;			
 		document.getElementById("a").disabled = true;
 		document.getElementById("b").disabled = true;
 		document.getElementById("c").disabled = true;
