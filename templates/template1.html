@@ -9,7 +9,7 @@
 		<div class="example-item first">
 			<div class="lightsaber">
 				<label for="yoda-example"></label>
-				<input type="checkbox" id="yoda-example" checked="checked">
+				<input type="checkbox" id="yoda-example">
 				<div class="switch"></div>
 				<div class="plasma yoda"></div>
 			</div>
@@ -17,7 +17,7 @@
 		<div class="example-item second">
 			<div class="lightsaber">
 				<label for="darth-vader-example"></label>
-				<input type="checkbox" id="darth-vader-example" checked="checked">
+				<input type="checkbox" id="darth-vader-example">
 				<div class="switch"></div>
 				<div class="plasma vader"></div>
 			</div>
@@ -32,29 +32,29 @@
 				<li>
 				<label for="a">{{ data[ques_number-1][1] }}</label>
 					<input id="a" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][1] }}')" />
-					<div class="check"></div>
+					<div class="check" id="{{ data[ques_number-1][1] }}"></div>
 				</li>
 				<li>
 					<label for="b">{{ data[ques_number-1][2] }}</label>
 					<input id="b" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][2] }}')" />
-					<div class="check"></div>
+					<div class="check" id="{{ data[ques_number-1][2] }}"></div>
 				</li>
 				<li>
 				<label for="c">{{ data[ques_number-1][3] }}</label>
 					<input id="c" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][3] }}')" />
-					<div class="check"></div>
+					<div class="check" id="{{ data[ques_number-1][3] }}"></div>
 				</li>
 				<li>
 				<label for="d">{{ data[ques_number-1][4] }}</label>
 					<input id="d" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][4] }}')" />
-					<div class="check"></div>
+					<div class="check" id="{{ data[ques_number-1][4] }}"></div>
 				</li>
 			</form>
 		</ul>
 	</div>
 
 	<div class="signature">
-		<p>Made with <i class="much-heart"></i> by <a href="http://codepen.io/AngelaVelasquez">Enkindle - JUIT</a></p>
+		<p>Made with <i class="much-heart"></i> by <a href="#">Enkindle - JUIT</a></p>
 	</div>
 
 
