@@ -1,14 +1,24 @@
+<!DOCTYPE html>
+<html>
 <head>
-<title>Quiz Up!!!</title>
+	<title>Reboot | Quiz Up</title>
+	<link rel="stylesheet" href="../static/css/main.css" />
+</head>
 <body>
-	<h1>Reboot Quiz Up!!!</h1><br>
-	<h1>Game Over!!!</h1><br>
-	<h1>Score : Gand Mara</h1>
-	<button id="myButton" class="float-left submit-button" >Restart</button>
+	<div class="container">
+		<ul id="results">
+	        <li class="results-inner">
+	            <p>Your result is:</p>
+	            <h1>{{ score }}</h1>
+	            <p class="desc">There is always a next time!</p>
+	        </li>
+	    </ul>
+		<button id="myButton" class="float-left submit-button" >Restart</button>
+	</div>
 
-<script type="text/javascript">
-    document.getElementById("myButton").onclick = function () {
-        location.href = "/";
-    };
-</script>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- End JS -->
+	<script src="../static/js/end.js"></script>
 </body>
+</html>
