@@ -24,28 +24,27 @@
 		</div>
 		<div class='radialtimer' id='time'></div>
 		<h2>Q{{ ques_number }}.{{ data[ques_number-1][0] }}</h2> 
-		<div id=time></div>	
 		<br> 
 
 		<ul>
 			<form action="" method="get">
 				<li>
-				<label for="a">{{ data[ques_number-1][1] }}</label>
-					<input id="a" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][1] }}')" />
+					<label for="a" id="{{ data[ques_number-1][1] }}">{{ data[ques_number-1][1] }}</label>
+					<input id="a" name="options" type="radio" onchange="statecheck('{{ data[ques_number-1][1] }}')" />
 					<div class="check" id="{{ data[ques_number-1][1] }}"></div>
 				</li>
 				<li>
-					<label for="b">{{ data[ques_number-1][2] }}</label>
+					<label for="b" id="{{ data[ques_number-1][2] }}">{{ data[ques_number-1][2] }}</label>
 					<input id="b" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][2] }}')" />
 					<div class="check" id="{{ data[ques_number-1][2] }}"></div>
 				</li>
 				<li>
-				<label for="c">{{ data[ques_number-1][3] }}</label>
+					<label for="c" id="{{ data[ques_number-1][3] }}">{{ data[ques_number-1][3] }}</label>
 					<input id="c" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][3] }}')" />
 					<div class="check" id="{{ data[ques_number-1][3] }}"></div>
 				</li>
 				<li>
-				<label for="d">{{ data[ques_number-1][4] }}</label>
+					<label for="d" id="{{ data[ques_number-1][4] }}">{{ data[ques_number-1][4] }}</label>
 					<input id="d" name="options" type="radio" onchange="statecheck('{{  data[ques_number-1][4] }}')" />
 					<div class="check" id="{{ data[ques_number-1][4] }}"></div>
 				</li>
@@ -61,6 +60,70 @@
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Main JS -->
-	<script src="../static/js/main.js"></script>
+	<script>
+		function statecheck(myLayer) {
+			var myLayer1 = document.getElementById(myLayer);
+			var str1 = myLayer;
+			var str2 = "{{ data[ques_number-1][5] }}";
+			var myLayer2 = document.getElementById(str2);
+			var n = str1.localeCompare(str2);
+			if(n == 0)
+			{
+				myLayer1.style.backgroundColor = "#bff0a1";
+				document.getElementById("yoda-example").checked = true;
+				document.getElementById("a").disabled = true;
+				document.getElementById("b").disabled = true;
+				document.getElementById("c").disabled = true;
+				document.getElementById("d").disabled = true;
+				setTimeout(function Redirect() {
+					window.location='/ques/'+ ({{ques_number}} + 1);
+				},2500);
+			}
+			else
+			{
+				myLayer1.style.backgroundColor = "#b000a1";
+				myLayer2.style.backgroundColor = "#bff0a1";
+				document.getElementById("darth-vader-example").checked = true;			
+				document.getElementById("a").disabled = true;
+				document.getElementById("b").disabled = true;
+				document.getElementById("c").disabled = true;
+				document.getElementById("d").disabled = true;
+				setTimeout(function Redirect1() {
+					window.location='/ques/'+ ({{ques_number}} + 1);
+				},2500);
+			}
+			window.history.forward();			
+		}
+
+
+		var count = 20;
+		var fxn = function() {
+			count--;
+			document.getElementById('time').innerHTML = count;
+			if(count == 0){
+				Redirect1();
+			}
+		}
+		setInterval(fxn, 1000);
+
+		if({{ques_number}} < 6)
+		{
+			function Redirect() {
+				window.location='/ques/'+ ({{ques_number}} + 1);
+			}
+			function Redirect1() {
+				window.location='/ques/'+ ({{ques_number}} + 1);
+			}
+		}
+
+		if({{ques_number}} >= 6)
+		{
+			Redirect2();
+		}
+
+		function Redirect2(){
+			window.location = '/end';
+		}
+	</script>
 </body>
 </html>

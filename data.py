@@ -28,7 +28,7 @@ def call(ques_number):
 @app.route("/end")
 def end():
 	return render_template("end.html")       
-	if __name__ == '__main__':
-		app.run(debug = True)
 
-
+if __name__ == '__main__':
+	app.debug = True
+	app.run(host = '192.168.0.110')

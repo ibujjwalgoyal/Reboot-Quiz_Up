@@ -24,6 +24,16 @@ body, html{
 	padding: 0;
 }
 
+div#time {
+	text-align: center;
+	font-weight: 300;
+	font-size: 1.5em;
+	color: white;
+	position: absolute;
+	top: -17%;
+	left: 40%;
+}
+
 button {
 	cursor: pointer;
   display: inline-block;
