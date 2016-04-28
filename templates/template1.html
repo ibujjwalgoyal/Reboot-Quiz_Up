@@ -61,6 +61,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Main JS -->
 	<script>
+		var count = 20;
+		var fxn = function() {
+			count--;
+			document.getElementById('time').innerHTML = count;
+			if(count == 0){
+				Redirect1();
+			}
+		}
+		setInterval(fxn, 1000);
+
 		function statecheck(myLayer) {
 			var myLayer1 = document.getElementById(myLayer);
 			var str1 = myLayer;
@@ -75,6 +85,27 @@
 				document.getElementById("b").disabled = true;
 				document.getElementById("c").disabled = true;
 				document.getElementById("d").disabled = true;
+				
+				var dataObj = {
+    				'Score': count
+   				}
+
+    			var json_dataObj = JSON.stringify(dataObj);
+
+    			$.ajax({
+					dataType: "json",
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					url: "/ques/{{ ques_number }}",
+					data: json_dataObj,
+					success: function(response) {
+						console.log(response)
+					},
+					error: function(response) {
+						console.log(response)
+					}
+				});
+				
 				setTimeout(function Redirect() {
 					window.location='/ques/'+ ({{ques_number}} + 1);
 				},2500);
@@ -94,17 +125,6 @@
 			}
 			window.history.forward();			
 		}
-
-
-		var count = 20;
-		var fxn = function() {
-			count--;
-			document.getElementById('time').innerHTML = count;
-			if(count == 0){
-				Redirect1();
-			}
-		}
-		setInterval(fxn, 1000);
 
 		if({{ques_number}} < 6)
 		{
